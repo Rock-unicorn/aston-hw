@@ -22,6 +22,7 @@
 const arr = [10, 12, 15, 21];
 
 const start = Date.now();
+//Функция выведет все индексы через 3 секунды
 const showIndexElement = (arr) => {
     for(let i = 0; i < arr.length; i++) {
         setTimeout(function (i) {
@@ -32,4 +33,18 @@ const showIndexElement = (arr) => {
     }
 }
 
-showIndexElement(arr);
+//showIndexElement(arr);
+
+//Функция выведет индекс каждые три секунды
+const showIndexElement1 = (arr) => {
+    for(let i = 0; i < arr.length; i++) {
+        let delay = 3000 * i + 3000;
+        setTimeout( function(i) {
+            return function() {
+                console.log(`Идекс - ${i}, прошло ${(Date.now() - start) / 1000} секунд`);
+            }
+        }(i), delay) 
+    }
+}
+
+showIndexElement1(arr);
